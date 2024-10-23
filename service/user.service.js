@@ -9,18 +9,23 @@ const createUser = async (obj) => {
   }
 };
 
-const findAllUsers = () => {
+const findAllUsers = async () => {
   try {
-    const data = userModel.findAll();
+    const data = await userModel.find({});
+    console.log(data)
     if (data.length > 0) {
       return data;
+     
+
     } else {
       return "no user found";
     }
   } catch (error) {
     return error;
   }
+  
 };
+
 
 const findById = (id) => {
   try {
